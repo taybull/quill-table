@@ -1,4 +1,5 @@
 import Quill from 'quill';
+import ContainBlot from './ContainBlot';
 
 let Container = Quill.import('blots/container');
 let Block = Quill.import('blots/block');
