@@ -17,15 +17,15 @@ class Table extends Container {
         } else if (value.includes('newtable_')) {
             let node = null;
             let sizes = value.split('_');
-            let row_count = Number.parseInt(sizes[1])
-            let col_count = Number.parseInt(sizes[2])
+            let row_count = Number.parseInt(sizes[1]);
+            let col_count = Number.parseInt(sizes[2]);
             let table_id = TableTrick.random_id();
             let table = Parchment.create('table', table_id);
-            for (var ri = 0; ri < row_count; ri++) {
+            for (let ri = 0; ri < row_count; ri++) {
                 let row_id = TableTrick.random_id();
                 let tr = Parchment.create('tr', row_id);
                 table.appendChild(tr);
-                for (var ci = 0; ci < col_count; ci++) {
+                for (let ci = 0; ci < col_count; ci++) {
                     let cell_id = TableTrick.random_id();
                     value = table_id + '|' + row_id + '|' + cell_id;
                     let td = Parchment.create('td', value);
@@ -41,7 +41,7 @@ class Table extends Container {
             let blot = leaf[0];
             let top_branch = null;
             for (; blot != null && !(blot instanceof Container || blot instanceof Scroll);) {
-                top_branch = blot
+                top_branch = blot;
                 blot = blot.parent;
             }
             blot.insertBefore(table, top_branch);
