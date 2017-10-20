@@ -1,0 +1,26 @@
+{
+  "name": "quill-js-table",
+  "version": "1.0.0",
+  "description": "Table functionality in QuillJS using Containers.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MrMadClown/quilljs-table.git"
+  },
+  "keywords": [
+    "Quill",
+    "Table"
+  ],
+  "author": "MrMadClown",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MrMadClown/quilljs-table/issues"
+  },
+  "homepage": "https://github.com/MrMadClown/quilljs-table#readme",
+  "devDependencies": {
+    "quill": "^1.3.3"
+  }
+}
