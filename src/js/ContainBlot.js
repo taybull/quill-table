@@ -7,29 +7,25 @@ let Parchment = Quill.import('parchment');
 
 class ContainBlot extends Container {
     static create(value) {
-        let tagName = 'contain';
-        let node = super.create(tagName);
-        return node;
+        return super.create(value);
     }
 
-    insertBefore(blot, ref) {
-        if (blot.statics.blotName == this.statics.blotName) {
-            console.log('############################ Not sure this is clean:');
-            console.log(blot);
-            console.log(blot.children.head);
-            super.insertBefore(blot.children.head, ref);
-        } else {
-            super.insertBefore(blot, ref);
+    formats(domNode) {
+        if(domNode){
+            return domNode.tagName;
         }
+        return this.domNode.tagName;
     }
 
-    static formats(domNode) {
-        return domNode.tagName;
-    }
-
-    formats() {
-        // We don't inherit from FormatBlot
-        return {[this.statics.blotName]: this.statics.formats(this.domNode)}
+    insertBefore(childBlot, refBlot) {
+        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+                return childBlot instanceof child;
+            })) {
+            let newChild = Parchment.create(this.statics.defaultChild);
+            newChild.appendChild(childBlot);
+            childBlot = newChild;
+        }
+        super.insertBefore(childBlot, refBlot)
     }
 
     replace(target) {
@@ -41,6 +37,14 @@ class ContainBlot extends Container {
         if (target.parent == null) return;
         super.replace(target)
     }
+
+
+    moveChildren(targetParent, refNode) {
+        this.children.forEach(function (child) {
+            targetParent.insertBefore(child, refNode);
+        });
+    }
+
 }
 
 ContainBlot.blotName = 'contain';

@@ -1,11 +1,10 @@
 import Quill from 'quill';
-import TableTrick from  './src/js/TableTrick';
 import TableCell from './src/js/TableCellBlot'
 import TableRow from './src/js/TableRowBlot'
+import TableTrick from './src/js/TableTrick'
 import Table from './src/js/TableBlot'
 import Contain from './src/js/ContainBlot'
-
-import 'src/css/quill.table.css';
+import './src/css/quill.table.css';
 
 let Container = Quill.import('blots/container');
 
@@ -18,7 +17,3 @@ Quill.register(TableCell);
 Quill.register(TableRow);
 Quill.register(Table);
 Quill.register(Contain);
-
-Quill.registerModule('table-module', function(quill, options) {
-    TableTrick.quill = quill;
-});

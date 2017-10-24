@@ -1,63 +1,21 @@
 import Quill from 'quill';
 import TableTrick from './TableTrick';
 import TableRow from './TableRowBlot';
+import ContainBlot from './ContainBlot';
 
 let Container = Quill.import('blots/container');
 let Parchment = Quill.import('parchment');
 
-class Table extends Container {
+class Table extends ContainBlot {
     static create(value) {
-        // special adding commands - belongs somewhere else out of constructor
-        if (value == 'append-row') {
-            let blot = TableTrick.append_row();
-            return blot;
-        } else if (value == 'append-col') {
-            let blot = TableTrick.append_col();
-            return blot;
-        } else if (value.includes('newtable_')) {
-            let node = null;
-            let sizes = value.split('_');
-            let row_count = Number.parseInt(sizes[1]);
-            let col_count = Number.parseInt(sizes[2]);
-            let table_id = TableTrick.random_id();
-            let table = Parchment.create('table', table_id);
-            for (let ri = 0; ri < row_count; ri++) {
-                let row_id = TableTrick.random_id();
-                let tr = Parchment.create('tr', row_id);
-                table.appendChild(tr);
-                for (let ci = 0; ci < col_count; ci++) {
-                    let cell_id = TableTrick.random_id();
-                    value = table_id + '|' + row_id + '|' + cell_id;
-                    let td = Parchment.create('td', value);
-                    tr.appendChild(td);
-                    let p = Parchment.create('block');
-                    td.appendChild(p);
-                    let br = Parchment.create('break');
-                    p.appendChild(br);
-                    node = p;
-                }
-            }
-            let leaf = quill.getLeaf(quill.getSelection()['index']);
-            let blot = leaf[0];
-            let top_branch = null;
-            for (; blot != null && !(blot instanceof Container || blot instanceof Scroll);) {
-                top_branch = blot;
-                blot = blot.parent;
-            }
-            blot.insertBefore(table, top_branch);
-            return node;
-        } else {
-            // normal table
-            let tagName = 'table';
-            let node = super.create(tagName);
-            node.setAttribute('table_id', value);
-            return node;
-        }
+        let tagName = 'table';
+        let node = super.create(tagName);
+        node.setAttribute('table_id', value);
+        return node;
     }
 
-    optimize() {
-        console.log("OPTIMIZE start");
-        super.optimize();
+    optimize(context) {
+        super.optimize(context);
         let next = this.next;
         if (next != null && next.prev === this &&
             next.statics.blotName === this.statics.blotName &&
@@ -66,8 +24,27 @@ class Table extends Container {
             next.moveChildren(this);
             next.remove();
         }
-        console.log(quill.editor.getDelta());
-        console.log("OPTIMIZE end");
+    }
+
+    insertBefore(childBlot, refBlot) {
+        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+                return childBlot instanceof child;
+            })) {
+            let newChild = Parchment.create(this.statics.defaultChild, TableTrick.random_id());
+            newChild.appendChild(childBlot);
+            childBlot = newChild;
+        }
+        super.insertBefore(childBlot, refBlot)
+    }
+
+    replace(target) {
+        if (target.statics.blotName !== this.statics.blotName) {
+            let item = Parchment.create(this.statics.defaultChild, TableTrick.random_id());
+            target.moveChildren(item, this);
+            this.appendChild(item);
+        }
+        if (target.parent == null) return;
+        super.replace(target)
     }
 
 }
