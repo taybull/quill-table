@@ -12785,11 +12785,6 @@ Container.order = ['list', 'contain', // Must be lower
 'td', 'tr', 'table' // Must be higher
 ];
 
-_quill2.default.register(_TableCellBlot2.default, true);
-_quill2.default.register(_TableRowBlot2.default, true);
-_quill2.default.register(_TableBlot2.default, true);
-_quill2.default.register(_ContainBlot2.default, true);
-
 exports.TableCell = _TableCellBlot2.default;
 exports.TableRow = _TableRowBlot2.default;
 exports.Table = _TableBlot2.default;
