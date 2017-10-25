@@ -5,7 +5,7 @@ import Contain from './js/ContainBlot';
 import './css/quill.table.css';
 import TableTrick from "./js/TableTrick";
 
-export default function (Quill) {
+export function registerQuillTable(Quill) {
     let Container = Quill.import('blots/container');
 
     Container.order = [
@@ -17,5 +17,5 @@ export default function (Quill) {
     Quill.register(TableRow, true);
     Quill.register(Table, true);
     Quill.register(Contain, true);
-};
+}
 export {TableTrick};
