@@ -14,10 +14,14 @@ class TableRow extends ContainBlot {
         return node;
     }
 
+    format() {
+        this.getAttribute('row_id');
+    }
+
     optimize(context) {
         if (this.children.length === 0) {
             if (this.statics.defaultChild != null) {
-                var child = Parchment.create(this.statics.defaultChild, [this.parent.domNode.getAttribute('table_id'), this.domNode.getAttribute('row_id'), TableTrick.random_id()].join('|'));
+                var child = this.createDefaultChild();
                 this.appendChild(child);
                 child.optimize(context);
             }
@@ -39,22 +43,35 @@ class TableRow extends ContainBlot {
         if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
                 return childBlot instanceof child;
             })) {
-            let newChild = Parchment.create(this.statics.defaultChild, [refBlot.domNode.getAttribute('table_id'), this.domNode.getAttribute('row_id'), TableTrick.random_id()].join('|'));
+            let newChild = this.createDefaultChild(refBlot);
             newChild.appendChild(childBlot);
             childBlot = newChild;
         }
-        super.insertBefore(childBlot)
+        super.insertBefore(childBlot, refBlot);
     }
 
     replace(target) {
         if (target.statics.blotName !== this.statics.blotName) {
-            let item = Parchment.create(this.statics.defaultChild, [this.domNode.parent.getAttribute('table_id'), this.domNode.getAttribute('row_id'), TableTrick.random_id()].join('|'));
+            let item = this.createDefaultChild();
             target.moveChildren(item, this);
             this.appendChild(item);
         }
-        if (target.parent == null) return;
-        super.replace(target)
+        super.replace(target);
     }
+
+    createDefaultChild(refBlot) {
+        let table_id = null;
+        if (refBlot) {
+            table_id = refBlot.domNode.getAttribute('table_id');
+        } else if (this.parent) {
+            table_id = this.parent.domNode.getAttribute('table_id');
+        } else {
+            table_id = this.domNode.parent.getAttribute('table_id');
+        }
+
+        return Parchment.create(this.statics.defaultChild, [table_id, this.domNode.getAttribute('row_id'), TableTrick.random_id()].join('|'));
+    }
+
 }
 
 TableRow.blotName = 'tr';

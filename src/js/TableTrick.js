@@ -1,6 +1,6 @@
 import Quill from 'quill';
 
-let Parchment = Quill.import('parchment');
+let Parchment = Quill.import('parchment');git
 let Container = Quill.import('blots/container');
 let Scroll = Quill.import('blots/scroll');
 

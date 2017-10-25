@@ -9,7 +9,6 @@ let Parchment = Quill.import('parchment');
 class TableCell extends ContainBlot {
 
     static create(value) {
-        console.log(value);
         let tagName = 'td';
         let node = super.create(tagName);
         let ids = value.split('|');
@@ -33,8 +32,8 @@ class TableCell extends ContainBlot {
         }
     }
 
-    optimize() {
-        super.optimize();
+    optimize(context) {
+        super.optimize(context);
 
         // Add parent TR and TABLE when missing
         let parent = this.parent;
@@ -46,7 +45,7 @@ class TableCell extends ContainBlot {
             let tr = Parchment.create('tr', this.domNode.getAttribute('row_id'));
             table.appendChild(tr);
             tr.appendChild(this);
-            table.replace(mark)
+            table.replace(mark);
         }
 
         // merge same TD id
@@ -58,6 +57,33 @@ class TableCell extends ContainBlot {
             next.moveChildren(this);
             next.remove();
         }
+    }
+
+    insertBefore(childBlot, refBlot) {
+        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+                return childBlot instanceof child;
+            })) {
+            let newChild = Parchment.create(this.statics.defaultChild);
+            newChild.appendChild(childBlot);
+            childBlot = newChild;
+        }
+        super.insertBefore(childBlot, refBlot)
+    }
+
+    replace(target) {
+        if (target.statics.blotName !== this.statics.blotName) {
+            let item = Parchment.create(this.statics.defaultChild);
+            target.moveChildren(item);
+            this.appendChild(item);
+        }
+        if (target.parent == null) return;
+        super.replace(target)
+    }
+
+    moveChildren(targetParent, refNode) {
+        this.children.forEach(function (child) {
+            targetParent.insertBefore(child, refNode);
+        });
     }
 }
 

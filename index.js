@@ -13,7 +13,15 @@ Container.order = [
     'td', 'tr', 'table'  // Must be higher
 ];
 
-Quill.register(TableCell);
-Quill.register(TableRow);
-Quill.register(Table);
-Quill.register(Contain);
+Quill.register(TableCell, true);
+Quill.register(TableRow, true);
+Quill.register(Table, true);
+Quill.register(Contain, true);
+
+export default {
+    TableCell,
+    TableRow,
+    Table,
+    Contain,
+    TableTrick
+}

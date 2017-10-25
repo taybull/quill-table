@@ -17,34 +17,6 @@ class ContainBlot extends Container {
         return this.domNode.tagName;
     }
 
-    insertBefore(childBlot, refBlot) {
-        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
-                return childBlot instanceof child;
-            })) {
-            let newChild = Parchment.create(this.statics.defaultChild);
-            newChild.appendChild(childBlot);
-            childBlot = newChild;
-        }
-        super.insertBefore(childBlot, refBlot)
-    }
-
-    replace(target) {
-        if (target.statics.blotName !== this.statics.blotName) {
-            let item = Parchment.create(this.statics.defaultChild);
-            target.moveChildren(item);
-            this.appendChild(item);
-        }
-        if (target.parent == null) return;
-        super.replace(target)
-    }
-
-
-    moveChildren(targetParent, refNode) {
-        this.children.forEach(function (child) {
-            targetParent.insertBefore(child, refNode);
-        });
-    }
-
 }
 
 ContainBlot.blotName = 'contain';

@@ -11,7 +11,12 @@ class Table extends ContainBlot {
         let tagName = 'table';
         let node = super.create(tagName);
         node.setAttribute('table_id', value);
+
         return node;
+    }
+
+    format() {
+        this.getAttribute('table_id');
     }
 
     optimize(context) {
@@ -35,16 +40,6 @@ class Table extends ContainBlot {
             childBlot = newChild;
         }
         super.insertBefore(childBlot, refBlot)
-    }
-
-    replace(target) {
-        if (target.statics.blotName !== this.statics.blotName) {
-            let item = Parchment.create(this.statics.defaultChild, TableTrick.random_id());
-            target.moveChildren(item, this);
-            this.appendChild(item);
-        }
-        if (target.parent == null) return;
-        super.replace(target)
     }
 
 }
