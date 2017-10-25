@@ -18,7 +18,7 @@ Quill.register(TableRow, true);
 Quill.register(Table, true);
 Quill.register(Contain, true);
 
-export default {
+export {
     TableCell,
     TableRow,
     Table,

@@ -4,18 +4,6 @@ Test lab for creating `TABLE` functionality in QuillJS using Containers.
 
 Code of quill is included in project so we can easily play with it in our tests.
 
-## Run
-
-Try by opening `quilljs-table/index.html` in a browser.
-
-## Aim of this project
-
-While the code is at this point more or less hacked together,
-long term goal is to provide enough material to understand table behavior
-so we end up with stable working solution for quill.
-
-Please feel free to add your own files and directories to play with the concept.
-
 ## Progress so far
 * `TABLE`, `TR` and `TD` are containers - it is possible to have multiple block blots in `TD`.
 * all tables, rows and cells are identified by random strings and optimize merge only those with the same id.
