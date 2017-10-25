@@ -11351,31 +11351,62 @@ module.exports = __webpack_require__(63);
 
 /***/ }),
 /* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
 
 
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
-let Block = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/block');
-let BlockEmbed = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/block/embed');
-let Parchment = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('parchment');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-class ContainBlot extends Container {
-    static create(value) {
-        return super.create(value);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
+
+var _quill = __webpack_require__(0);
+
+var _quill2 = _interopRequireDefault(_quill);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = _quill2.default.import('blots/container');
+var Block = _quill2.default.import('blots/block');
+var BlockEmbed = _quill2.default.import('blots/block/embed');
+var Parchment = _quill2.default.import('parchment');
+
+var ContainBlot = function (_Container) {
+    _inherits(ContainBlot, _Container);
+
+    function ContainBlot() {
+        _classCallCheck(this, ContainBlot);
+
+        return _possibleConstructorReturn(this, (ContainBlot.__proto__ || Object.getPrototypeOf(ContainBlot)).apply(this, arguments));
     }
 
-    formats(domNode) {
-        if(domNode){
-            return domNode.tagName;
+    _createClass(ContainBlot, [{
+        key: 'formats',
+        value: function formats(domNode) {
+            if (domNode) {
+                return domNode.tagName;
+            }
+            return this.domNode.tagName;
         }
-        return this.domNode.tagName;
-    }
+    }], [{
+        key: 'create',
+        value: function create(value) {
+            return _get(ContainBlot.__proto__ || Object.getPrototypeOf(ContainBlot), 'create', this).call(this, value);
+        }
+    }]);
 
-}
+    return ContainBlot;
+}(Container);
 
 ContainBlot.blotName = 'contain';
 ContainBlot.tagName = 'contain';
@@ -11383,216 +11414,271 @@ ContainBlot.scope = Parchment.Scope.BLOCK_BLOT;
 ContainBlot.defaultChild = 'block';
 ContainBlot.allowedChildren = [Block, BlockEmbed, Container];
 
-/* harmony default export */ __webpack_exports__["a"] = (ContainBlot);
+exports.default = ContainBlot;
 
 /***/ }),
 /* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
 
 
-let Parchment = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('parchment');
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
-let Scroll = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/scroll');
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-class TableTrick {
-    static random_id() {
-        return Math.random().toString(36).slice(2)
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _quill = __webpack_require__(0);
+
+var _quill2 = _interopRequireDefault(_quill);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Parchment = _quill2.default.import('parchment');
+var Container = _quill2.default.import('blots/container');
+var Scroll = _quill2.default.import('blots/scroll');
+
+var TableTrick = function () {
+    function TableTrick() {
+        _classCallCheck(this, TableTrick);
     }
 
-    static find_td(quill) {
-        let leaf = quill.getLeaf(quill.getSelection()['index']);
-        let blot = leaf[0];
-        for (; blot != null && blot.statics.blotName != 'td';) {
-            blot = blot.parent;
+    _createClass(TableTrick, null, [{
+        key: 'random_id',
+        value: function random_id() {
+            return Math.random().toString(36).slice(2);
         }
-        return blot; // return TD or NULL
-    }
-
-    static table_handler(value, quill) {
-        if (value.includes('newtable_')) {
-            let node = null;
-            let sizes = value.split('_');
-            let row_count = Number.parseInt(sizes[1]);
-            let col_count = Number.parseInt(sizes[2]);
-            let table_id = TableTrick.random_id();
-            let table = Parchment.create('table', table_id);
-            for (var ri = 0; ri < row_count; ri++) {
-                let row_id = TableTrick.random_id();
-                let tr = Parchment.create('tr', row_id);
-                table.appendChild(tr);
-                for (var ci = 0; ci < col_count; ci++) {
-                    let cell_id = TableTrick.random_id();
-                    value = table_id + '|' + row_id + '|' + cell_id;
-                    let td = Parchment.create('td', value);
-                    tr.appendChild(td);
-                    let p = Parchment.create('block');
-                    td.appendChild(p);
-                    let br = Parchment.create('break');
-                    p.appendChild(br);
-                    node = p;
-                }
-            }
-            let leaf = quill.getLeaf(quill.getSelection()['index']);
-            let blot = leaf[0];
-            let top_branch = null;
-            for (; blot != null && !(blot instanceof Container || blot instanceof Scroll);) {
-                top_branch = blot;
+    }, {
+        key: 'find_td',
+        value: function find_td(quill) {
+            var leaf = quill.getLeaf(quill.getSelection()['index']);
+            var blot = leaf[0];
+            for (; blot != null && blot.statics.blotName != 'td';) {
                 blot = blot.parent;
             }
-            blot.insertBefore(table, top_branch);
-            return node;
-        } else if (value === 'append-col') {
-            let td = TableTrick.find_td(quill);
-            if (td) {
-                let table = td.parent.parent;
-                let table_id = table.domNode.getAttribute('table_id');
-                table.children.forEach(function (tr) {
-                    let row_id = tr.domNode.getAttribute('row_id');
-                    let cell_id = TableTrick.random_id();
-                    let td = Parchment.create('td', table_id + '|' + row_id + '|' + cell_id);
-                    tr.appendChild(td);
-                });
-            }
-        } else if (value === 'append-row') {
-            let td = TableTrick.find_td(quill);
-            if (td) {
-                let col_count = td.parent.children.length;
-                let table = td.parent.parent;
-                let new_row = td.parent.clone();
-                let table_id = table.domNode.getAttribute('table_id');
-                let row_id = TableTrick.random_id();
-                new_row.domNode.setAttribute('row_id', row_id);
-                for (let i = col_count - 1; i >= 0; i--) {
-                    let cell_id = TableTrick.random_id();
-                    let td = Parchment.create('td', table_id + '|' + row_id + '|' + cell_id);
-                    new_row.appendChild(td);
-                    let p = Parchment.create('block');
-                    td.appendChild(p);
-                    let br = Parchment.create('break');
-                    p.appendChild(br);
-                }
-                table.appendChild(new_row);
-                console.log(new_row);
-            }
-        } else {
-            let table_id = TableTrick.random_id();
-            let table = Parchment.create('table', table_id);
-
-            let leaf = quill.getLeaf(quill.getSelection()['index']);
-            let blot = leaf[0];
-            let top_branch = null;
-            for (; blot != null && !(blot instanceof Container || blot instanceof Scroll);) {
-                top_branch = blot;
-                blot = blot.parent;
-            }
-            blot.insertBefore(table, top_branch);
-            return table;
+            return blot; // return TD or NULL
         }
-    }
-}
-/* harmony export (immutable) */ __webpack_exports__["a"] = TableTrick;
+    }, {
+        key: 'table_handler',
+        value: function table_handler(value, quill) {
+            if (value.includes('newtable_')) {
+                var node = null;
+                var sizes = value.split('_');
+                var row_count = Number.parseInt(sizes[1]);
+                var col_count = Number.parseInt(sizes[2]);
+                var table_id = TableTrick.random_id();
+                var table = Parchment.create('table', table_id);
+                for (var ri = 0; ri < row_count; ri++) {
+                    var row_id = TableTrick.random_id();
+                    var tr = Parchment.create('tr', row_id);
+                    table.appendChild(tr);
+                    for (var ci = 0; ci < col_count; ci++) {
+                        var cell_id = TableTrick.random_id();
+                        value = table_id + '|' + row_id + '|' + cell_id;
+                        var td = Parchment.create('td', value);
+                        tr.appendChild(td);
+                        var p = Parchment.create('block');
+                        td.appendChild(p);
+                        var br = Parchment.create('break');
+                        p.appendChild(br);
+                        node = p;
+                    }
+                }
+                var leaf = quill.getLeaf(quill.getSelection()['index']);
+                var blot = leaf[0];
+                var top_branch = null;
+                for (; blot != null && !(blot instanceof Container || blot instanceof Scroll);) {
+                    top_branch = blot;
+                    blot = blot.parent;
+                }
+                blot.insertBefore(table, top_branch);
+                return node;
+            } else if (value === 'append-col') {
+                var _td = TableTrick.find_td(quill);
+                if (_td) {
+                    var _table = _td.parent.parent;
+                    var _table_id = _table.domNode.getAttribute('table_id');
+                    _table.children.forEach(function (tr) {
+                        var row_id = tr.domNode.getAttribute('row_id');
+                        var cell_id = TableTrick.random_id();
+                        var td = Parchment.create('td', _table_id + '|' + row_id + '|' + cell_id);
+                        tr.appendChild(td);
+                    });
+                }
+            } else if (value === 'append-row') {
+                var _td2 = TableTrick.find_td(quill);
+                if (_td2) {
+                    var _col_count = _td2.parent.children.length;
+                    var _table2 = _td2.parent.parent;
+                    var new_row = _td2.parent.clone();
+                    var _table_id2 = _table2.domNode.getAttribute('table_id');
+                    var _row_id = TableTrick.random_id();
+                    new_row.domNode.setAttribute('row_id', _row_id);
+                    for (var i = _col_count - 1; i >= 0; i--) {
+                        var _cell_id = TableTrick.random_id();
+                        var _td3 = Parchment.create('td', _table_id2 + '|' + _row_id + '|' + _cell_id);
+                        new_row.appendChild(_td3);
+                        var _p = Parchment.create('block');
+                        _td3.appendChild(_p);
+                        var _br = Parchment.create('break');
+                        _p.appendChild(_br);
+                    }
+                    _table2.appendChild(new_row);
+                    console.log(new_row);
+                }
+            } else {
+                var _table_id3 = TableTrick.random_id();
+                var _table3 = Parchment.create('table', _table_id3);
 
+                var _leaf = quill.getLeaf(quill.getSelection()['index']);
+                var _blot = _leaf[0];
+                var _top_branch = null;
+                for (; _blot != null && !(_blot instanceof Container || _blot instanceof Scroll);) {
+                    _top_branch = _blot;
+                    _blot = _blot.parent;
+                }
+                _blot.insertBefore(_table3, _top_branch);
+                return _table3;
+            }
+        }
+    }]);
+
+    return TableTrick;
+}();
+
+exports.default = TableTrick;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ContainBlot__ = __webpack_require__(1);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
-let Block = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/block');
-let BlockEmbed = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/block/embed');
-let Parchment = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('parchment');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-class TableCell extends __WEBPACK_IMPORTED_MODULE_1__ContainBlot__["a" /* default */] {
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-    static create(value) {
-        let tagName = 'td';
-        let node = super.create(tagName);
-        let ids = value.split('|');
-        node.setAttribute('table_id', ids[0]);
-        node.setAttribute('row_id', ids[1]);
-        node.setAttribute('cell_id', ids[2]);
-        return node;
+var _quill = __webpack_require__(0);
+
+var _quill2 = _interopRequireDefault(_quill);
+
+var _ContainBlot2 = __webpack_require__(1);
+
+var _ContainBlot3 = _interopRequireDefault(_ContainBlot2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = _quill2.default.import('blots/container');
+var Block = _quill2.default.import('blots/block');
+var BlockEmbed = _quill2.default.import('blots/block/embed');
+var Parchment = _quill2.default.import('parchment');
+
+var TableCell = function (_ContainBlot) {
+    _inherits(TableCell, _ContainBlot);
+
+    function TableCell() {
+        _classCallCheck(this, TableCell);
+
+        return _possibleConstructorReturn(this, (TableCell.__proto__ || Object.getPrototypeOf(TableCell)).apply(this, arguments));
     }
 
-    format() {
-        this.getAttribute('id');
-    }
-
-    formats() {
-        // We don't inherit from FormatBlot
-        return {
-            [this.statics.blotName]:
-            this.domNode.getAttribute('table_id') + '|' +
-            this.domNode.getAttribute('row_id') + '|' +
-            this.domNode.getAttribute('cell_id')
+    _createClass(TableCell, [{
+        key: 'format',
+        value: function format() {
+            this.getAttribute('id');
         }
-    }
-
-    optimize(context) {
-        super.optimize(context);
-
-        // Add parent TR and TABLE when missing
-        let parent = this.parent;
-        if (parent != null && parent.statics.blotName != 'tr') {
-            // we will mark td position, put in table and replace mark
-            let mark = Parchment.create('block');
-            this.parent.insertBefore(mark, this.next);
-            let table = Parchment.create('table', this.domNode.getAttribute('table_id'));
-            let tr = Parchment.create('tr', this.domNode.getAttribute('row_id'));
-            table.appendChild(tr);
-            tr.appendChild(this);
-            table.replace(mark);
+    }, {
+        key: 'formats',
+        value: function formats() {
+            // We don't inherit from FormatBlot
+            return _defineProperty({}, this.statics.blotName, this.domNode.getAttribute('table_id') + '|' + this.domNode.getAttribute('row_id') + '|' + this.domNode.getAttribute('cell_id'));
         }
+    }, {
+        key: 'optimize',
+        value: function optimize(context) {
+            _get(TableCell.prototype.__proto__ || Object.getPrototypeOf(TableCell.prototype), 'optimize', this).call(this, context);
 
-        // merge same TD id
-        let next = this.next;
-        if (next != null && next.prev === this &&
-            next.statics.blotName === this.statics.blotName &&
-            next.domNode.tagName === this.domNode.tagName &&
-            next.domNode.getAttribute('cell_id') === this.domNode.getAttribute('cell_id')) {
-            next.moveChildren(this);
-            next.remove();
+            // Add parent TR and TABLE when missing
+            var parent = this.parent;
+            if (parent != null && parent.statics.blotName != 'tr') {
+                // we will mark td position, put in table and replace mark
+                var mark = Parchment.create('block');
+                this.parent.insertBefore(mark, this.next);
+                var table = Parchment.create('table', this.domNode.getAttribute('table_id'));
+                var tr = Parchment.create('tr', this.domNode.getAttribute('row_id'));
+                table.appendChild(tr);
+                tr.appendChild(this);
+                table.replace(mark);
+            }
+
+            // merge same TD id
+            var next = this.next;
+            if (next != null && next.prev === this && next.statics.blotName === this.statics.blotName && next.domNode.tagName === this.domNode.tagName && next.domNode.getAttribute('cell_id') === this.domNode.getAttribute('cell_id')) {
+                next.moveChildren(this);
+                next.remove();
+            }
         }
-    }
-
-    insertBefore(childBlot, refBlot) {
-        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+    }, {
+        key: 'insertBefore',
+        value: function insertBefore(childBlot, refBlot) {
+            if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
                 return childBlot instanceof child;
             })) {
-            let newChild = Parchment.create(this.statics.defaultChild);
-            newChild.appendChild(childBlot);
-            childBlot = newChild;
+                var newChild = Parchment.create(this.statics.defaultChild);
+                newChild.appendChild(childBlot);
+                childBlot = newChild;
+            }
+            _get(TableCell.prototype.__proto__ || Object.getPrototypeOf(TableCell.prototype), 'insertBefore', this).call(this, childBlot, refBlot);
         }
-        super.insertBefore(childBlot, refBlot)
-    }
-
-    replace(target) {
-        if (target.statics.blotName !== this.statics.blotName) {
-            let item = Parchment.create(this.statics.defaultChild);
-            target.moveChildren(item);
-            this.appendChild(item);
+    }, {
+        key: 'replace',
+        value: function replace(target) {
+            if (target.statics.blotName !== this.statics.blotName) {
+                var item = Parchment.create(this.statics.defaultChild);
+                target.moveChildren(item);
+                this.appendChild(item);
+            }
+            if (target.parent == null) return;
+            _get(TableCell.prototype.__proto__ || Object.getPrototypeOf(TableCell.prototype), 'replace', this).call(this, target);
         }
-        if (target.parent == null) return;
-        super.replace(target)
-    }
+    }, {
+        key: 'moveChildren',
+        value: function moveChildren(targetParent, refNode) {
+            this.children.forEach(function (child) {
+                targetParent.insertBefore(child, refNode);
+            });
+        }
+    }], [{
+        key: 'create',
+        value: function create(value) {
+            var tagName = 'td';
+            var node = _get(TableCell.__proto__ || Object.getPrototypeOf(TableCell), 'create', this).call(this, tagName);
+            var ids = value.split('|');
+            node.setAttribute('table_id', ids[0]);
+            node.setAttribute('row_id', ids[1]);
+            node.setAttribute('cell_id', ids[2]);
+            return node;
+        }
+    }]);
 
-    moveChildren(targetParent, refNode) {
-        this.children.forEach(function (child) {
-            targetParent.insertBefore(child, refNode);
-        });
-    }
-}
+    return TableCell;
+}(_ContainBlot3.default);
 
 TableCell.blotName = 'td';
 TableCell.tagName = 'td';
@@ -11600,144 +11686,195 @@ TableCell.scope = Parchment.Scope.BLOCK_BLOT;
 TableCell.defaultChild = 'block';
 TableCell.allowedChildren = [Block, BlockEmbed, Container];
 
-/* harmony default export */ __webpack_exports__["a"] = (TableCell);
+exports.default = TableCell;
 
 /***/ }),
 /* 4 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__TableCellBlot__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ContainBlot__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__TableTrick__ = __webpack_require__(2);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
-let Parchment = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('parchment');
+var _quill = __webpack_require__(0);
 
-class TableRow extends __WEBPACK_IMPORTED_MODULE_2__ContainBlot__["a" /* default */] {
-    static create(value) {
-        let tagName = 'tr';
-        let node = super.create(tagName);
-        node.setAttribute('row_id', value ? value : __WEBPACK_IMPORTED_MODULE_3__TableTrick__["a" /* default */].random_id());
-        return node;
+var _quill2 = _interopRequireDefault(_quill);
+
+var _TableCellBlot = __webpack_require__(3);
+
+var _TableCellBlot2 = _interopRequireDefault(_TableCellBlot);
+
+var _ContainBlot2 = __webpack_require__(1);
+
+var _ContainBlot3 = _interopRequireDefault(_ContainBlot2);
+
+var _TableTrick = __webpack_require__(2);
+
+var _TableTrick2 = _interopRequireDefault(_TableTrick);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = _quill2.default.import('blots/container');
+var Parchment = _quill2.default.import('parchment');
+
+var TableRow = function (_ContainBlot) {
+    _inherits(TableRow, _ContainBlot);
+
+    function TableRow() {
+        _classCallCheck(this, TableRow);
+
+        return _possibleConstructorReturn(this, (TableRow.__proto__ || Object.getPrototypeOf(TableRow)).apply(this, arguments));
     }
 
-    format() {
-        this.getAttribute('row_id');
-    }
-
-    optimize(context) {
-        if (this.children.length === 0) {
-            if (this.statics.defaultChild != null) {
-                var child = this.createDefaultChild();
-                this.appendChild(child);
-                child.optimize(context);
+    _createClass(TableRow, [{
+        key: 'format',
+        value: function format() {
+            this.getAttribute('row_id');
+        }
+    }, {
+        key: 'optimize',
+        value: function optimize(context) {
+            if (this.children.length === 0) {
+                if (this.statics.defaultChild != null) {
+                    var child = this.createDefaultChild();
+                    this.appendChild(child);
+                    child.optimize(context);
+                } else {
+                    this.remove();
+                }
             }
-            else {
-                this.remove();
+            var next = this.next;
+            if (next != null && next.prev === this && next.statics.blotName === this.statics.blotName && next.domNode.tagName === this.domNode.tagName && next.domNode.getAttribute('row_id') === this.domNode.getAttribute('row_id')) {
+                next.moveChildren(this);
+                next.remove();
             }
         }
-        let next = this.next;
-        if (next != null && next.prev === this &&
-            next.statics.blotName === this.statics.blotName &&
-            next.domNode.tagName === this.domNode.tagName &&
-            next.domNode.getAttribute('row_id') === this.domNode.getAttribute('row_id')) {
-            next.moveChildren(this);
-            next.remove();
-        }
-    }
-
-    insertBefore(childBlot, refBlot) {
-        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+    }, {
+        key: 'insertBefore',
+        value: function insertBefore(childBlot, refBlot) {
+            if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
                 return childBlot instanceof child;
             })) {
-            let newChild = this.createDefaultChild(refBlot);
-            newChild.appendChild(childBlot);
-            childBlot = newChild;
+                var newChild = this.createDefaultChild(refBlot);
+                newChild.appendChild(childBlot);
+                childBlot = newChild;
+            }
+            _get(TableRow.prototype.__proto__ || Object.getPrototypeOf(TableRow.prototype), 'insertBefore', this).call(this, childBlot, refBlot);
         }
-        super.insertBefore(childBlot, refBlot);
-    }
-
-    replace(target) {
-        if (target.statics.blotName !== this.statics.blotName) {
-            let item = this.createDefaultChild();
-            target.moveChildren(item, this);
-            this.appendChild(item);
+    }, {
+        key: 'replace',
+        value: function replace(target) {
+            if (target.statics.blotName !== this.statics.blotName) {
+                var item = this.createDefaultChild();
+                target.moveChildren(item, this);
+                this.appendChild(item);
+            }
+            _get(TableRow.prototype.__proto__ || Object.getPrototypeOf(TableRow.prototype), 'replace', this).call(this, target);
         }
-        super.replace(target);
-    }
+    }, {
+        key: 'createDefaultChild',
+        value: function createDefaultChild(refBlot) {
+            var table_id = null;
+            if (refBlot) {
+                table_id = refBlot.domNode.getAttribute('table_id');
+            } else if (this.parent) {
+                table_id = this.parent.domNode.getAttribute('table_id');
+            } else {
+                table_id = this.domNode.parent.getAttribute('table_id');
+            }
 
-    createDefaultChild(refBlot) {
-        let table_id = null;
-        if (refBlot) {
-            table_id = refBlot.domNode.getAttribute('table_id');
-        } else if (this.parent) {
-            table_id = this.parent.domNode.getAttribute('table_id');
-        } else {
-            table_id = this.domNode.parent.getAttribute('table_id');
+            return Parchment.create(this.statics.defaultChild, [table_id, this.domNode.getAttribute('row_id'), _TableTrick2.default.random_id()].join('|'));
         }
+    }], [{
+        key: 'create',
+        value: function create(value) {
+            var tagName = 'tr';
+            var node = _get(TableRow.__proto__ || Object.getPrototypeOf(TableRow), 'create', this).call(this, tagName);
+            node.setAttribute('row_id', value ? value : _TableTrick2.default.random_id());
+            return node;
+        }
+    }]);
 
-        return Parchment.create(this.statics.defaultChild, [table_id, this.domNode.getAttribute('row_id'), __WEBPACK_IMPORTED_MODULE_3__TableTrick__["a" /* default */].random_id()].join('|'));
-    }
-
-}
+    return TableRow;
+}(_ContainBlot3.default);
 
 TableRow.blotName = 'tr';
 TableRow.tagName = 'tr';
 TableRow.scope = Parchment.Scope.BLOCK_BLOT;
 TableRow.defaultChild = 'td';
-TableRow.allowedChildren = [__WEBPACK_IMPORTED_MODULE_1__TableCellBlot__["a" /* default */]];
+TableRow.allowedChildren = [_TableCellBlot2.default];
 
-/* harmony default export */ __webpack_exports__["a"] = (TableRow);
+exports.default = TableRow;
 
 /***/ }),
 /* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__js_TableCellBlot__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__js_TableRowBlot__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__js_TableTrick__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__js_TableBlot__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__js_ContainBlot__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__css_quill_table_css__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__css_quill_table_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__css_quill_table_css__);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.TableTrick = exports.Contain = exports.Table = exports.TableRow = exports.TableCell = undefined;
 
+var _quill = __webpack_require__(0);
 
+var _quill2 = _interopRequireDefault(_quill);
 
+var _TableCellBlot = __webpack_require__(3);
 
+var _TableCellBlot2 = _interopRequireDefault(_TableCellBlot);
 
+var _TableRowBlot = __webpack_require__(4);
 
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
+var _TableRowBlot2 = _interopRequireDefault(_TableRowBlot);
 
-Container.order = [
-    'list', 'contain',   // Must be lower
-    'td', 'tr', 'table'  // Must be higher
+var _TableTrick = __webpack_require__(2);
+
+var _TableTrick2 = _interopRequireDefault(_TableTrick);
+
+var _TableBlot = __webpack_require__(11);
+
+var _TableBlot2 = _interopRequireDefault(_TableBlot);
+
+var _ContainBlot = __webpack_require__(1);
+
+var _ContainBlot2 = _interopRequireDefault(_ContainBlot);
+
+__webpack_require__(12);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Container = _quill2.default.import('blots/container');
+
+Container.order = ['list', 'contain', // Must be lower
+'td', 'tr', 'table' // Must be higher
 ];
 
-__WEBPACK_IMPORTED_MODULE_0_quill___default.a.register(__WEBPACK_IMPORTED_MODULE_1__js_TableCellBlot__["a" /* default */], true);
-__WEBPACK_IMPORTED_MODULE_0_quill___default.a.register(__WEBPACK_IMPORTED_MODULE_2__js_TableRowBlot__["a" /* default */], true);
-__WEBPACK_IMPORTED_MODULE_0_quill___default.a.register(__WEBPACK_IMPORTED_MODULE_4__js_TableBlot__["a" /* default */], true);
-__WEBPACK_IMPORTED_MODULE_0_quill___default.a.register(__WEBPACK_IMPORTED_MODULE_5__js_ContainBlot__["a" /* default */], true);
+_quill2.default.register(_TableCellBlot2.default, true);
+_quill2.default.register(_TableRowBlot2.default, true);
+_quill2.default.register(_TableBlot2.default, true);
+_quill2.default.register(_ContainBlot2.default, true);
 
-/* harmony default export */ __webpack_exports__["default"] = ({
-    TableCell: __WEBPACK_IMPORTED_MODULE_1__js_TableCellBlot__["a" /* default */],
-    TableRow: __WEBPACK_IMPORTED_MODULE_2__js_TableRowBlot__["a" /* default */],
-    Table: __WEBPACK_IMPORTED_MODULE_4__js_TableBlot__["a" /* default */],
-    Contain: __WEBPACK_IMPORTED_MODULE_5__js_ContainBlot__["a" /* default */],
-    TableTrick: __WEBPACK_IMPORTED_MODULE_3__js_TableTrick__["a" /* default */]
-});
+exports.TableCell = _TableCellBlot2.default;
+exports.TableRow = _TableRowBlot2.default;
+exports.Table = _TableBlot2.default;
+exports.Contain = _ContainBlot2.default;
+exports.TableTrick = _TableTrick2.default;
 
 /***/ }),
 /* 6 */
@@ -13787,67 +13924,103 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_quill___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_quill__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__TableTrick__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__TableRowBlot__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ContainBlot__ = __webpack_require__(1);
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
-let Container = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('blots/container');
-let Parchment = __WEBPACK_IMPORTED_MODULE_0_quill___default.a.import('parchment');
+var _quill = __webpack_require__(0);
 
-class Table extends __WEBPACK_IMPORTED_MODULE_3__ContainBlot__["a" /* default */] {
-    static create(value) {
-        let tagName = 'table';
-        let node = super.create(tagName);
-        node.setAttribute('table_id', value);
+var _quill2 = _interopRequireDefault(_quill);
 
-        return node;
+var _TableTrick = __webpack_require__(2);
+
+var _TableTrick2 = _interopRequireDefault(_TableTrick);
+
+var _TableRowBlot = __webpack_require__(4);
+
+var _TableRowBlot2 = _interopRequireDefault(_TableRowBlot);
+
+var _ContainBlot2 = __webpack_require__(1);
+
+var _ContainBlot3 = _interopRequireDefault(_ContainBlot2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Container = _quill2.default.import('blots/container');
+var Parchment = _quill2.default.import('parchment');
+
+var Table = function (_ContainBlot) {
+    _inherits(Table, _ContainBlot);
+
+    function Table() {
+        _classCallCheck(this, Table);
+
+        return _possibleConstructorReturn(this, (Table.__proto__ || Object.getPrototypeOf(Table)).apply(this, arguments));
     }
 
-    format() {
-        this.getAttribute('table_id');
-    }
-
-    optimize(context) {
-        super.optimize(context);
-        let next = this.next;
-        if (next != null && next.prev === this &&
-            next.statics.blotName === this.statics.blotName &&
-            next.domNode.tagName === this.domNode.tagName &&
-            next.domNode.getAttribute('table_id') === this.domNode.getAttribute('table_id')) {
-            next.moveChildren(this);
-            next.remove();
+    _createClass(Table, [{
+        key: 'format',
+        value: function format() {
+            this.getAttribute('table_id');
         }
-    }
-
-    insertBefore(childBlot, refBlot) {
-        if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
+    }, {
+        key: 'optimize',
+        value: function optimize(context) {
+            _get(Table.prototype.__proto__ || Object.getPrototypeOf(Table.prototype), 'optimize', this).call(this, context);
+            var next = this.next;
+            if (next != null && next.prev === this && next.statics.blotName === this.statics.blotName && next.domNode.tagName === this.domNode.tagName && next.domNode.getAttribute('table_id') === this.domNode.getAttribute('table_id')) {
+                next.moveChildren(this);
+                next.remove();
+            }
+        }
+    }, {
+        key: 'insertBefore',
+        value: function insertBefore(childBlot, refBlot) {
+            if (this.statics.allowedChildren != null && !this.statics.allowedChildren.some(function (child) {
                 return childBlot instanceof child;
             })) {
-            let newChild = Parchment.create(this.statics.defaultChild, __WEBPACK_IMPORTED_MODULE_1__TableTrick__["a" /* default */].random_id());
-            newChild.appendChild(childBlot);
-            childBlot = newChild;
+                var newChild = Parchment.create(this.statics.defaultChild, _TableTrick2.default.random_id());
+                newChild.appendChild(childBlot);
+                childBlot = newChild;
+            }
+            _get(Table.prototype.__proto__ || Object.getPrototypeOf(Table.prototype), 'insertBefore', this).call(this, childBlot, refBlot);
         }
-        super.insertBefore(childBlot, refBlot)
-    }
+    }], [{
+        key: 'create',
+        value: function create(value) {
+            var tagName = 'table';
+            var node = _get(Table.__proto__ || Object.getPrototypeOf(Table), 'create', this).call(this, tagName);
+            node.setAttribute('table_id', value);
 
-}
+            return node;
+        }
+    }]);
+
+    return Table;
+}(_ContainBlot3.default);
 
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
 Table.defaultChild = 'tr';
-Table.allowedChildren = [__WEBPACK_IMPORTED_MODULE_2__TableRowBlot__["a" /* default */]];
+Table.allowedChildren = [_TableRowBlot2.default];
 
-/* harmony default export */ __webpack_exports__["a"] = (Table);
+exports.default = Table;
 
 /***/ }),
 /* 12 */
