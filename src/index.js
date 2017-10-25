@@ -14,12 +14,9 @@ Container.order = [
     'td', 'tr', 'table'  // Must be higher
 ];
 
-Quill.register(TableCell, true);
-Quill.register(TableRow, true);
-Quill.register(Table, true);
-Quill.register(Contain, true);
+export {TableCell, TableRow, Table, Contain};
 
-Quill.register('modules/table', function (quill, options) {
+export default function tableModule(quill, options) {
     let toolbar = quill.getModule('toolbar');
     toolbar.addHandler('table', function (value) {
         return TableTrick.table_handler(value, quill);
@@ -34,8 +31,4 @@ Quill.register('modules/table', function (quill, options) {
     clipboard.addMatcher('TD', function (node, delta) {
         return delta.compose(new Delta().retain(delta.length(), {td: node.getAttribute('table_id') + '|' + node.getAttribute('row_id') + '|' + node.getAttribute('cell_id')}));
     });
-});
-
-if (!window.Quill) {
-    window.Quill = Quill;
 }

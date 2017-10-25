@@ -35,7 +35,7 @@ module.exports = {
                 warnings: false,
                 screw_ie8: true,
                 conditionals: true,
-                unused: true,
+                unused: false,
                 comparisons: true,
                 sequences: true,
                 dead_code: true,
