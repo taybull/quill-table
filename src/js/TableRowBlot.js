@@ -1,7 +1,7 @@
 import Quill from 'quill';
 import TableCell from './TableCellBlot';
 import ContainBlot from './ContainBlot';
-import TableTrick from './TableTrick'
+import TableTrick from './TableTrick';
 
 let Container = Quill.import('blots/container');
 let Parchment = Quill.import('parchment');
