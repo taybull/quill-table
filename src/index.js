@@ -13,6 +13,11 @@ Container.order = [
     'td', 'tr', 'table'  // Must be higher
 ];
 
+Quill.register(TableCell, true);
+Quill.register(TableRow, true);
+Quill.register(Table, true);
+Quill.register(Contain, true);
+
 export {
     TableCell,
     TableRow,
