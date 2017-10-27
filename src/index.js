@@ -14,9 +14,7 @@ Container.order = [
     'td', 'tr', 'table'  // Must be higher
 ];
 
-export {TableCell, TableRow, Table, Contain};
-
-export class TableModule {
+class TableModule {
     constructor(quill, options) {
         let toolbar = quill.getModule('toolbar');
         toolbar.addHandler('table', function (value) {
@@ -34,3 +32,11 @@ export class TableModule {
         });
     }
 }
+
+module.exports = {
+    Table,
+    TableRow,
+    TableCell,
+    Contain,
+    TableModule
+};
