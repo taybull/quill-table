@@ -10,6 +10,9 @@ module.exports = {
         libraryTarget: 'umd',
         path: path.resolve(__dirname, 'dist')
     },
+    externals: {
+        quill: 'quill',
+    },
     module: {
         rules: [
             {

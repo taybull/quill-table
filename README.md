@@ -4,6 +4,16 @@ Test lab for creating `TABLE` functionality in QuillJS using Containers.
 
 Code of quill is included in project so we can easily play with it in our tests.
 
+## Usage
+```javascript
+const quillTable = require('quill-table');
+
+Quill.register(quillTable.TableCell);
+Quill.register(quillTable.TableRow);
+Quill.register(quillTable.Table);
+Quill.register(quillTable.Contain);
+Quill.register('modules/table', quillTable.TableModule);
+```
 ## Progress so far
 * `TABLE`, `TR` and `TD` are containers - it is possible to have multiple block blots in `TD`.
 * all tables, rows and cells are identified by random strings and optimize merge only those with the same id.
