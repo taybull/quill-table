@@ -32,5 +32,4 @@ Still there are some worth to mention which should be dealt with.
 * When loading delta of nested container in table cell, nested container loose format.
 * Pressing enter in table cell leads to inserting container into the container. It is hacked in ContainBlot insertBefore function by striping parent container and optimize then merges it fine. But it should be resolved earlier on MutationRecord creation or probably somewhere on update at `Scroll` or `Container` level.
 * Containers need order similar to Inline.order. Otherwise delta is not canonical.
-* Organization of code is hectic as it was not refactored even once from our first attempts to put this all to work.
 * ...
