@@ -5,6 +5,7 @@
   "main": "dist/quill-table.js",
   "scripts": {
     "build": "webpack && webpack --config=demo.config.js",
+    "watch": "webpack --config=demo.config.js --watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

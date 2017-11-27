@@ -1,4 +1,5 @@
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     entry: './src/demo.js',
@@ -30,5 +31,9 @@ module.exports = {
             }
         ]
     },
-    plugins: []
+    plugins: [
+        new webpack.SourceMapDevToolPlugin({
+            filename: 'demo.js.map',
+        }),
+    ]
 };

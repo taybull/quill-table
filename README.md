@@ -30,6 +30,5 @@ Still there are some worth to mention which should be dealt with.
 * Definition of TableTrick is hacked in just to test if adding of rows and cols is easily possible - which is. Should be done differently so quill doesn't throw exception (it continues to work).
 * Undo/History breaks badly with cell deletions (disabled backspace could solve this).
 * When loading delta of nested container in table cell, nested container loose format.
-* Pressing enter in table cell leads to inserting container into the container. It is hacked in ContainBlot insertBefore function by striping parent container and optimize then merges it fine. But it should be resolved earlier on MutationRecord creation or probably somewhere on update at `Scroll` or `Container` level.
 * Containers need order similar to Inline.order. Otherwise delta is not canonical.
 * ...

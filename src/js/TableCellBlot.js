@@ -35,17 +35,22 @@ class TableCell extends ContainBlot {
     optimize(context) {
         super.optimize(context);
 
-        // Add parent TR and TABLE when missing
         let parent = this.parent;
-        if (parent != null && parent.statics.blotName != 'tr') {
-            // we will mark td position, put in table and replace mark
-            let mark = Parchment.create('block');
-            this.parent.insertBefore(mark, this.next);
-            let table = Parchment.create('table', this.domNode.getAttribute('table_id'));
-            let tr = Parchment.create('tr', this.domNode.getAttribute('row_id'));
-            table.appendChild(tr);
-            tr.appendChild(this);
-            table.replace(mark);
+        if (parent != null) {
+            if (parent.statics.blotName === 'td') {
+                this.moveChildren(parent, this);
+                this.remove();
+                return;
+            } else if (parent.statics.blotName != 'tr') {
+                // we will mark td position, put in table and replace mark
+                let mark = Parchment.create('block');
+                this.parent.insertBefore(mark, this.next);
+                let table = Parchment.create('table', this.domNode.getAttribute('table_id'));
+                let tr = Parchment.create('tr', this.domNode.getAttribute('row_id'));
+                table.appendChild(tr);
+                tr.appendChild(this);
+                table.replace(mark);
+            }
         }
 
         // merge same TD id
