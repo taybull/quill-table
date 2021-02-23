@@ -10,18 +10,15 @@ class Table extends ContainBlot {
     static create(value) {
         console.log('value', value);
         let tagName = 'table';
+        let split = value.split('|');
         let node = super.create(tagName);
-        node.setAttribute('table_id', value.table_id);
-        node.setAttribute('class', value.class);
+        node.setAttribute('table_id', split[0]);
+        node.setAttribute('class', split[1]);
         return node;
     }
 
     format() {
-        return {
-            table_id: this.getAttribute('table_id'),
-            class: this.getAttribute('class'),
-        }
-        
+        this.getAttribute('table_id') + "|" + this.getAttribute('class');
     }
 
     optimize(context) {

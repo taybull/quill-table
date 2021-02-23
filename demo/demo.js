@@ -18036,10 +18036,7 @@ var Table = function (_ContainBlot) {
     (0, _createClass3.default)(Table, [{
         key: 'format',
         value: function format() {
-            return {
-                table_id: this.getAttribute('table_id'),
-                class: this.getAttribute('class')
-            };
+            this.getAttribute('table_id') + "|" + this.getAttribute('class');
         }
     }, {
         key: 'optimize',
@@ -18068,9 +18065,10 @@ var Table = function (_ContainBlot) {
         value: function create(value) {
             console.log('value', value);
             var tagName = 'table';
+            var split = value.split('|');
             var node = (0, _get3.default)(Table.__proto__ || (0, _getPrototypeOf2.default)(Table), 'create', this).call(this, tagName);
-            node.setAttribute('table_id', value.table_id);
-            node.setAttribute('class', value.class);
+            node.setAttribute('table_id', split[0]);
+            node.setAttribute('class', split[1]);
             return node;
         }
     }]);
