@@ -13,12 +13,21 @@ class Table extends ContainBlot {
         let split = value.split('|');
         let node = super.create(tagName);
         node.setAttribute('table_id', split[0]);
-        node.setAttribute('class', split[1]);
+        node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
         return node;
     }
 
     format() {
         this.getAttribute('table_id') + "|" + this.getAttribute('class');
+    }
+
+    formats() {
+        // We don't inherit from FormatBlot
+        return {
+            [this.statics.blotName]:
+            this.domNode.getAttribute('table_id') + '|' +
+            this.domNode.getAttribute('class') 
+        }
     }
 
     optimize(context) {
