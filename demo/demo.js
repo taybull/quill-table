@@ -18066,6 +18066,7 @@ var Table = function (_ContainBlot) {
     }], [{
         key: 'create',
         value: function create(value) {
+            console.log('value', value);
             var tagName = 'table';
             var node = (0, _get3.default)(Table.__proto__ || (0, _getPrototypeOf2.default)(Table), 'create', this).call(this, tagName);
             node.setAttribute('table_id', value.table_id);

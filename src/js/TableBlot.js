@@ -8,6 +8,7 @@ let Parchment = Quill.import('parchment');
 
 class Table extends ContainBlot {
     static create(value) {
+        console.log('value', value);
         let tagName = 'table';
         let node = super.create(tagName);
         node.setAttribute('table_id', value.table_id);
