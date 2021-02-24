@@ -18065,9 +18065,7 @@ var Table = function (_ContainBlot) {
     (0, _createClass3.default)(Table, [{
         key: 'format',
         value: function format() {
-            var format = this.getAttribute('table_id') + "|" + this.getAttribute('class');
-            console.log('format', format);
-            return format;
+            this.getAttribute('id');
         }
     }, {
         key: 'formats',
@@ -18107,7 +18105,7 @@ var Table = function (_ContainBlot) {
             var split = value.split('|');
             var node = (0, _get3.default)(Table.__proto__ || (0, _getPrototypeOf2.default)(Table), 'create', this).call(this, tagName);
             node.setAttribute('table_id', split[0]);
-            node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
+            // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
             return node;
         }
     }]);
