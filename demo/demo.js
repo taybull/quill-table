@@ -18063,17 +18063,32 @@ var Table = function (_ContainBlot) {
 
     (0, _createClass3.default)(Table, [{
         key: 'format',
-        value: function format(name, value) {
-            if (ATTRIBUTES.indexOf(name) > -1) {
-                if (value) {
-                    this.domNode.setAttribute(name, value);
-                } else {
-                    this.domNode.removeAttribute(name);
-                }
-            } else {
-                (0, _get3.default)(Table.prototype.__proto__ || (0, _getPrototypeOf2.default)(Table.prototype), 'format', this).call(this, name, value);
-            }
+        value: function format() {
+            this.getAttribute('id');
         }
+
+        // format(name, value) {
+        //     if (ATTRIBUTES.indexOf(name) > -1) {
+        //       if (value) {
+        //         this.domNode.setAttribute(name, value);
+        //       } else {
+        //         this.domNode.removeAttribute(name);
+        //       }
+        //     } else {
+        //       super.format(name, value);
+        //     }
+        // }
+
+        // static formats(domNode) {
+        //     return ATTRIBUTES.reduce(function(formats, attribute) {
+        //       if (domNode.hasAttribute(attribute)) {
+        //         formats[attribute] = domNode.getAttribute(attribute);
+        //       }
+        //       return formats;
+        //     }, {});
+        //   }
+
+
     }, {
         key: 'optimize',
         value: function optimize(context) {
@@ -18108,16 +18123,6 @@ var Table = function (_ContainBlot) {
             // node.setAttribute('table_id', value);
             // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
             return node;
-        }
-    }, {
-        key: 'formats',
-        value: function formats(domNode) {
-            return ATTRIBUTES.reduce(function (formats, attribute) {
-                if (domNode.hasAttribute(attribute)) {
-                    formats[attribute] = domNode.getAttribute(attribute);
-                }
-                return formats;
-            }, {});
         }
     }]);
     return Table;
