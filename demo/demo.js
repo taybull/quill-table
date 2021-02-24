@@ -15805,7 +15805,8 @@ var TableModule = function TableModule(quill, options) {
     });
     var clipboard = quill.getModule('clipboard');
     clipboard.addMatcher('TABLE', function (node, delta) {
-        console.log('addMatcher.TABLE', 'node');
+        console.log('addMatcher.TABLE node', node);
+        console.log('addMatcher.TABLE delta', delta);
         return delta.compose(new _quillDelta2.default().retain(delta.length(), {
             table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
         }));

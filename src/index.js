@@ -23,7 +23,8 @@ class TableModule {
         });
         let clipboard = quill.getModule('clipboard');
         clipboard.addMatcher('TABLE', function (node, delta) {
-            console.log('addMatcher.TABLE', 'node');
+            console.log('addMatcher.TABLE node', node);
+            console.log('addMatcher.TABLE delta', delta);
             return delta.compose(new Delta().retain(delta.length(), {
                 table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
             }));
