@@ -18141,14 +18141,15 @@ var NoBorderTable = function (_Table) {
     return NoBorderTable;
 }(Table);
 
+NoBorderTable.className = 'border';
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
 Table.defaultChild = 'tr';
 Table.allowedChildren = [_TableRowBlot2.default];
 
-NoBorderTable.className = 'nobordertable';
-NoBorderTable.blotName = 'nobordertable';
+NoBorderTable.className = 'noborder';
+NoBorderTable.blotName = 'noborder';
 NoBorderTable.tagName = 'table';
 NoBorderTable.scope = Parchment.Scope.BLOCK_BLOT;
 NoBorderTable.defaultChild = 'tr';
