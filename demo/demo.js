@@ -18040,7 +18040,7 @@ var Table = function (_ContainBlot) {
     (0, _createClass3.default)(Table, [{
         key: 'format',
         value: function format() {
-            this.getAttribute('table_id') + "|" + this.getAttribute('class');
+            return this.getAttribute('table_id') + "|" + this.getAttribute('class');
         }
     }, {
         key: 'formats',
@@ -18073,7 +18073,7 @@ var Table = function (_ContainBlot) {
     }], [{
         key: 'create',
         value: function create(value) {
-            console.log('value', value);
+            console.log('Table value here', value);
             var tagName = 'table';
             var split = value.split('|');
             var node = (0, _get3.default)(Table.__proto__ || (0, _getPrototypeOf2.default)(Table), 'create', this).call(this, tagName);
