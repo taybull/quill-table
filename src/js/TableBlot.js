@@ -5,8 +5,11 @@ import ContainBlot from './ContainBlot';
 
 let Container = Quill.import('blots/container');
 let Parchment = Quill.import('parchment');
-
+const ATTRIBUTES = [
+    'class'
+  ];
 class Table extends ContainBlot {
+    
     static create(value) {
         console.log('Table value here', value);
         let tagName = 'table';
@@ -17,19 +20,27 @@ class Table extends ContainBlot {
         return node;
     }
 
-    format() {
-        this.getAttribute('id');
+    format(name, value) {
+        if (ATTRIBUTES.indexOf(name) > -1) {
+          if (value) {
+            this.domNode.setAttribute(name, value);
+          } else {
+            this.domNode.removeAttribute(name);
+          }
+        } else {
+          super.format(name, value);
+        }
     }
 
-    formats() {
-        // We don't inherit from FormatBlot
-        const formats = {
-            [this.statics.blotName]:
-            this.domNode.getAttribute('table_id') + '|' + this.domNode.getAttribute('class') 
-        }
-        console.log('formats', formats);
-        return formats;
-    }
+    static formats(domNode) {
+        return ATTRIBUTES.reduce(function(formats, attribute) {
+          if (domNode.hasAttribute(attribute)) {
+            formats[attribute] = domNode.getAttribute(attribute);
+          }
+          return formats;
+        }, {});
+      }
+    
 
     optimize(context) {
         super.optimize(context);
