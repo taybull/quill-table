@@ -18099,9 +18099,11 @@ var Table = function (_ContainBlot) {
         value: function create(value) {
             console.log('Table value here', value);
             var tagName = 'table';
-            var split = value.split('|');
             var node = (0, _get3.default)(Table.__proto__ || (0, _getPrototypeOf2.default)(Table), 'create', this).call(this, tagName);
-            node.setAttribute('table_id', split[0]);
+            if (typeof value === 'string') {
+                node.setAttribute('table_id', value);
+            }
+            // node.setAttribute('table_id', value);
             // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
             return node;
         }

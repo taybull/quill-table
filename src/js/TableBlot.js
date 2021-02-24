@@ -13,9 +13,11 @@ class Table extends ContainBlot {
     static create(value) {
         console.log('Table value here', value);
         let tagName = 'table';
-        let split = value.split('|');
         let node = super.create(tagName);
-        node.setAttribute('table_id', split[0]);
+        if (typeof value === 'string') {
+            node.setAttribute('table_id', value);
+          }
+        // node.setAttribute('table_id', value);
         // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
         return node;
     }
