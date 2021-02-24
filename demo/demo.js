@@ -18040,13 +18040,17 @@ var Table = function (_ContainBlot) {
     (0, _createClass3.default)(Table, [{
         key: 'format',
         value: function format() {
-            return this.getAttribute('table_id') + "|" + this.getAttribute('class');
+            var format = this.getAttribute('table_id') + "|" + this.getAttribute('class');
+            console.log('format', format);
+            return format;
         }
     }, {
         key: 'formats',
         value: function formats() {
             // We don't inherit from FormatBlot
-            return (0, _defineProperty3.default)({}, this.statics.blotName, this.domNode.getAttribute('table_id') + '|' + this.domNode.getAttribute('class'));
+            var formats = (0, _defineProperty3.default)({}, this.statics.blotName, this.domNode.getAttribute('table_id') + '|' + this.domNode.getAttribute('class'));
+            console.log('formats', formats);
+            return formats;
         }
     }, {
         key: 'optimize',

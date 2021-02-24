@@ -18,16 +18,20 @@ class Table extends ContainBlot {
     }
 
     format() {
-        return this.getAttribute('table_id') + "|" + this.getAttribute('class');
+        const format = this.getAttribute('table_id') + "|" + this.getAttribute('class');
+        console.log('format', format);
+        return format;
     }
 
     formats() {
         // We don't inherit from FormatBlot
-        return {
+        const formats = {
             [this.statics.blotName]:
             this.domNode.getAttribute('table_id') + '|' +
             this.domNode.getAttribute('class') 
         }
+        console.log('formats', formats);
+        return formats;
     }
 
     optimize(context) {
