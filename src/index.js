@@ -25,6 +25,13 @@ class TableModule {
         clipboard.addMatcher('TABLE', function (node, delta) {
             console.log('addMatcher.TABLE node', node);
             console.log('addMatcher.TABLE delta', delta);
+
+            try {
+                console.log('addMatcher.TABLE node.getAttribute table_id', node.getAttribute('table_id'));
+                console.log('addMatcher.TABLE node.getAttribute class', node.getAttribute('class'));
+            } catch(error) {
+
+            }
             return delta;
             // return delta.compose(new Delta().retain(delta.length(), {
             //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
@@ -43,6 +50,7 @@ class TableModule {
                 td: node.getAttribute('table_id') + '|' + node.getAttribute('row_id') + '|' + node.getAttribute('cell_id')
             }));
             console.log('addMatcher.TD td', td);
+            return td;
         });
     }
 }

@@ -27,8 +27,7 @@ class Table extends ContainBlot {
         // We don't inherit from FormatBlot
         const formats = {
             [this.statics.blotName]:
-            this.domNode.getAttribute('table_id') + '|' +
-            this.domNode.getAttribute('class') 
+            this.domNode.getAttribute('table_id') + '|' + this.domNode.getAttribute('class') 
         }
         console.log('formats', formats);
         return formats;
