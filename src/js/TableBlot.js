@@ -13,14 +13,12 @@ class Table extends ContainBlot {
         let split = value.split('|');
         let node = super.create(tagName);
         node.setAttribute('table_id', split[0]);
-        node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
+        // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
         return node;
     }
 
     format() {
-        const format = this.getAttribute('table_id') + "|" + this.getAttribute('class');
-        console.log('format', format);
-        return format;
+        this.getAttribute('id');
     }
 
     formats() {
