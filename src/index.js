@@ -25,11 +25,14 @@ class TableModule {
         clipboard.addMatcher('TABLE', function (node, delta) {
             console.log('addMatcher.TABLE node', node);
             console.log('addMatcher.TABLE delta', delta);
-            return delta.compose(new Delta().retain(delta.length(), {
-                table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
-            }));
+            return delta;
+            // return delta.compose(new Delta().retain(delta.length(), {
+            //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
+            // }));
         });
         clipboard.addMatcher('TR', function (node, delta) {
+            console.log('addMatcher.TR node', node);
+            console.log('addMatcher.TR delta', delta);
             return delta;
         });
         clipboard.addMatcher('TD', function (node, delta) {
