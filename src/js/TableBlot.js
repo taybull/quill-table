@@ -8,7 +8,7 @@ let Parchment = Quill.import('parchment');
 
 class Table extends ContainBlot {
     static create(value) {
-        console.log('value', value);
+        console.log('Table value here', value);
         let tagName = 'table';
         let split = value.split('|');
         let node = super.create(tagName);
@@ -18,7 +18,7 @@ class Table extends ContainBlot {
     }
 
     format() {
-        this.getAttribute('table_id') + "|" + this.getAttribute('class');
+        return this.getAttribute('table_id') + "|" + this.getAttribute('class');
     }
 
     formats() {
