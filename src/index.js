@@ -30,7 +30,7 @@ class TableModule {
                 console.log('addMatcher.TABLE node.getAttribute table_id', node.getAttribute('table_id'));
                 console.log('addMatcher.TABLE node.getAttribute class', node.getAttribute('class'));
             } catch(error) {
-
+                console.log('error', error);
             }
             return delta;
             // return delta.compose(new Delta().retain(delta.length(), {
