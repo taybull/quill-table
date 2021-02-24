@@ -15821,9 +15821,10 @@ var TableModule = function TableModule(quill, options) {
         console.log('addMatcher.TD node', node);
         console.log('addMatcher.TD delta', delta);
 
-        return delta.compose(new _quillDelta2.default().retain(delta.length(), {
+        var td = delta.compose(new _quillDelta2.default().retain(delta.length(), {
             td: node.getAttribute('table_id') + '|' + node.getAttribute('row_id') + '|' + node.getAttribute('cell_id')
         }));
+        console.log('addMatcher.TD td', td);
     });
 };
 
