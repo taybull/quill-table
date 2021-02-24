@@ -12540,24 +12540,31 @@ var TableTrick = function () {
     }, {
         key: 'table_handler',
         value: function table_handler(value, quill) {
-            if (value.includes('newtable_')) {
+            if (value === 'add-border') {
+                var td = TableTrick.find_td(quill);
+                if (td) {
+                    var table = td.parent.parent;
+                    var borderLine = table.domNode.getAttribute('class');
+                    table.domNode.setAttribute('class', borderLine == 'noborder' ? '' : 'noborder');
+                }
+            } else if (value.includes('newtable_')) {
                 var node = null;
                 var sizes = value.split('_');
                 var row_count = (0, _parseInt2.default)(sizes[1]);
                 var col_count = (0, _parseInt2.default)(sizes[2]);
                 var table_id = TableTrick.random_id();
-                var table = Parchment.create('table', table_id);
+                var _table = Parchment.create('table', table_id);
                 for (var ri = 0; ri < row_count; ri++) {
                     var row_id = TableTrick.random_id();
                     var tr = Parchment.create('tr', row_id);
-                    table.appendChild(tr);
+                    _table.appendChild(tr);
                     for (var ci = 0; ci < col_count; ci++) {
                         var cell_id = TableTrick.random_id();
                         value = table_id + '|' + row_id + '|' + cell_id;
-                        var td = Parchment.create('td', value);
-                        tr.appendChild(td);
+                        var _td = Parchment.create('td', value);
+                        tr.appendChild(_td);
                         var p = Parchment.create('block');
-                        td.appendChild(p);
+                        _td.appendChild(p);
                         var br = Parchment.create('break');
                         p.appendChild(br);
                         node = p;
@@ -12570,14 +12577,14 @@ var TableTrick = function () {
                     top_branch = blot;
                     blot = blot.parent;
                 }
-                blot.insertBefore(table, top_branch);
+                blot.insertBefore(_table, top_branch);
                 return node;
             } else if (value === 'append-col') {
-                var _td = TableTrick.find_td(quill);
-                if (_td) {
-                    var _table = _td.parent.parent;
-                    var _table_id = _table.domNode.getAttribute('table_id');
-                    _table.children.forEach(function (tr) {
+                var _td2 = TableTrick.find_td(quill);
+                if (_td2) {
+                    var _table2 = _td2.parent.parent;
+                    var _table_id = _table2.domNode.getAttribute('table_id');
+                    _table2.children.forEach(function (tr) {
                         var row_id = tr.domNode.getAttribute('row_id');
                         var cell_id = TableTrick.random_id();
                         var td = Parchment.create('td', _table_id + '|' + row_id + '|' + cell_id);
@@ -12585,29 +12592,29 @@ var TableTrick = function () {
                     });
                 }
             } else if (value === 'append-row') {
-                var _td2 = TableTrick.find_td(quill);
-                if (_td2) {
-                    var _col_count = _td2.parent.children.length;
-                    var _table2 = _td2.parent.parent;
-                    var new_row = _td2.parent.clone();
-                    var _table_id2 = _table2.domNode.getAttribute('table_id');
+                var _td3 = TableTrick.find_td(quill);
+                if (_td3) {
+                    var _col_count = _td3.parent.children.length;
+                    var _table3 = _td3.parent.parent;
+                    var new_row = _td3.parent.clone();
+                    var _table_id2 = _table3.domNode.getAttribute('table_id');
                     var _row_id = TableTrick.random_id();
                     new_row.domNode.setAttribute('row_id', _row_id);
                     for (var i = _col_count - 1; i >= 0; i--) {
                         var _cell_id = TableTrick.random_id();
-                        var _td3 = Parchment.create('td', _table_id2 + '|' + _row_id + '|' + _cell_id);
-                        new_row.appendChild(_td3);
+                        var _td4 = Parchment.create('td', _table_id2 + '|' + _row_id + '|' + _cell_id);
+                        new_row.appendChild(_td4);
                         var _p = Parchment.create('block');
-                        _td3.appendChild(_p);
+                        _td4.appendChild(_p);
                         var _br = Parchment.create('break');
                         _p.appendChild(_br);
                     }
-                    _table2.appendChild(new_row);
+                    _table3.appendChild(new_row);
                     console.log(new_row);
                 }
             } else {
                 var _table_id3 = TableTrick.random_id();
-                var _table3 = Parchment.create('table', _table_id3);
+                var _table4 = Parchment.create('table', _table_id3);
 
                 var _leaf = quill.getLeaf(quill.getSelection()['index']);
                 var _blot = _leaf[0];
@@ -12616,8 +12623,8 @@ var TableTrick = function () {
                     _top_branch = _blot;
                     _blot = _blot.parent;
                 }
-                _blot.insertBefore(_table3, _top_branch);
-                return _table3;
+                _blot.insertBefore(_table4, _top_branch);
+                return _table4;
             }
         }
     }]);
@@ -15793,6 +15800,7 @@ var TableModule = function TableModule(quill, options) {
 
     var toolbar = quill.getModule('toolbar');
     toolbar.addHandler('table', function (value) {
+        console.log('toolbar.addHandler', value);
         return _TableTrick2.default.table_handler(value, quill);
     });
     var clipboard = quill.getModule('clipboard');

@@ -18,6 +18,7 @@ class TableModule {
     constructor(quill, options) {
         let toolbar = quill.getModule('toolbar');
         toolbar.addHandler('table', function (value) {
+            console.log('toolbar.addHandler', value);
             return TableTrick.table_handler(value, quill);
         });
         let clipboard = quill.getModule('clipboard');

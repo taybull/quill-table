@@ -19,7 +19,14 @@ export default class TableTrick {
     }
 
     static table_handler(value, quill) {
-        if (value.includes('newtable_')) {
+        if (value === 'add-border') {
+            let td = TableTrick.find_td(quill);
+            if (td) {
+                let table = td.parent.parent;
+                const borderLine = table.domNode.getAttribute('class');
+                table.domNode.setAttribute('class', borderLine == 'noborder' ? '' : 'noborder');
+            }
+        } else if (value.includes('newtable_')) {
             let node = null;
             let sizes = value.split('_');
             let row_count = Number.parseInt(sizes[1]);
