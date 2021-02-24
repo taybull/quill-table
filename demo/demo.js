@@ -15805,6 +15805,7 @@ var TableModule = function TableModule(quill, options) {
     });
     var clipboard = quill.getModule('clipboard');
     clipboard.addMatcher('TABLE', function (node, delta) {
+        console.log('addMatcher.TABLE', value);
         return delta;
     });
     clipboard.addMatcher('TR', function (node, delta) {
