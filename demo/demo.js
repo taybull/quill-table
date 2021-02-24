@@ -15745,8 +15745,6 @@ var _TableRowBlot2 = _interopRequireDefault(_TableRowBlot);
 
 var _TableBlot = __webpack_require__(124);
 
-var _TableBlot2 = _interopRequireDefault(_TableBlot);
-
 var _ContainBlot = __webpack_require__(22);
 
 var _ContainBlot2 = _interopRequireDefault(_ContainBlot);
@@ -15778,12 +15776,16 @@ var TableModule = function TableModule(quill, options) {
         console.log('addMatcher.TABLE node', node);
         console.log('addMatcher.TABLE delta', delta);
 
+        var id = "";
         try {
             console.log('addMatcher.TABLE node.getAttribute table_id', node.getAttribute('table_id'));
+            id = node.getAttribute('table_id');
+            id = id + "|" + node.getAttribute('class');
             console.log('addMatcher.TABLE node.getAttribute class', node.getAttribute('class'));
         } catch (error) {
             console.log('error', error);
         }
+
         return delta;
         // return delta.compose(new Delta().retain(delta.length(), {
         //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
@@ -15807,7 +15809,8 @@ var TableModule = function TableModule(quill, options) {
 };
 
 module.exports = {
-    Table: _TableBlot2.default,
+    Table: _TableBlot.Table,
+    NoBorderTable: _TableBlot.NoBorderTable,
     TableRow: _TableRowBlot2.default,
     TableCell: _TableCellBlot2.default,
     Contain: _ContainBlot2.default,
@@ -18006,6 +18009,7 @@ module.exports = exporter;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.NoBorderTable = exports.Table = undefined;
 
 var _getPrototypeOf = __webpack_require__(14);
 
@@ -18120,13 +18124,22 @@ var Table = function (_ContainBlot) {
             if (typeof value === 'string') {
                 node.setAttribute('table_id', value);
             }
-            // node.setAttribute('table_id', value);
-            // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
             return node;
         }
     }]);
     return Table;
 }(_ContainBlot3.default);
+
+var NoBorderTable = function (_Table) {
+    (0, _inherits3.default)(NoBorderTable, _Table);
+
+    function NoBorderTable() {
+        (0, _classCallCheck3.default)(this, NoBorderTable);
+        return (0, _possibleConstructorReturn3.default)(this, (NoBorderTable.__proto__ || (0, _getPrototypeOf2.default)(NoBorderTable)).apply(this, arguments));
+    }
+
+    return NoBorderTable;
+}(Table);
 
 Table.blotName = 'table';
 Table.tagName = 'table';
@@ -18134,7 +18147,15 @@ Table.scope = Parchment.Scope.BLOCK_BLOT;
 Table.defaultChild = 'tr';
 Table.allowedChildren = [_TableRowBlot2.default];
 
-exports.default = Table;
+NoBorderTable.className = 'nobordertable';
+NoBorderTable.blotName = 'nobordertable';
+NoBorderTable.tagName = 'table';
+NoBorderTable.scope = Parchment.Scope.BLOCK_BLOT;
+NoBorderTable.defaultChild = 'tr';
+NoBorderTable.allowedChildren = [_TableRowBlot2.default];
+
+exports.Table = Table;
+exports.NoBorderTable = NoBorderTable;
 
 /***/ })
 /******/ ]);

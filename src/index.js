@@ -2,7 +2,7 @@ import Quill from 'quill';
 import Delta from 'quill-delta';
 import TableCell from './js/TableCellBlot';
 import TableRow from './js/TableRowBlot';
-import Table from './js/TableBlot';
+import {Table, NoBorderTable} from './js/TableBlot';
 import Contain from './js/ContainBlot';
 import './css/quill.table.css';
 import TableTrick from "./js/TableTrick";
@@ -26,12 +26,16 @@ class TableModule {
             console.log('addMatcher.TABLE node', node);
             console.log('addMatcher.TABLE delta', delta);
 
+            let id = "";
             try {
                 console.log('addMatcher.TABLE node.getAttribute table_id', node.getAttribute('table_id'));
+                id = node.getAttribute('table_id');
+                id = id + "|" + node.getAttribute('class');
                 console.log('addMatcher.TABLE node.getAttribute class', node.getAttribute('class'));
             } catch(error) {
                 console.log('error', error);
             }
+            
             return delta;
             // return delta.compose(new Delta().retain(delta.length(), {
             //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
@@ -57,6 +61,7 @@ class TableModule {
 
 module.exports = {
     Table,
+    NoBorderTable,
     TableRow,
     TableCell,
     Contain,

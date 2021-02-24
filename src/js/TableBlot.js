@@ -17,8 +17,6 @@ class Table extends ContainBlot {
         if (typeof value === 'string') {
             node.setAttribute('table_id', value);
           }
-        // node.setAttribute('table_id', value);
-        // node.setAttribute('class', typeof split[1] != 'undefined' ? split[1] : '');
         return node;
     }
 
@@ -74,10 +72,22 @@ class Table extends ContainBlot {
 
 }
 
+class NoBorderTable extends Table {
+
+}
+
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
 Table.defaultChild = 'tr';
 Table.allowedChildren = [TableRow];
 
-export default Table;
+
+NoBorderTable.className = 'nobordertable';
+NoBorderTable.blotName = 'nobordertable';
+NoBorderTable.tagName = 'table';
+NoBorderTable.scope = Parchment.Scope.BLOCK_BLOT;
+NoBorderTable.defaultChild = 'tr';
+NoBorderTable.allowedChildren = [TableRow];
+
+export {Table, NoBorderTable};
