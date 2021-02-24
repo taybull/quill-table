@@ -76,7 +76,7 @@ class NoBorderTable extends Table {
 
 }
 
-NoBorderTable.className = 'border';
+Table.className = 'border';
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
