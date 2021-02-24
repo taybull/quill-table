@@ -36,6 +36,9 @@ class TableModule {
             return delta;
         });
         clipboard.addMatcher('TD', function (node, delta) {
+            console.log('addMatcher.TD node', node);
+            console.log('addMatcher.TD delta', delta);
+            
             return delta.compose(new Delta().retain(delta.length(), {
                 td: node.getAttribute('table_id') + '|' + node.getAttribute('row_id') + '|' + node.getAttribute('cell_id')
             }));
