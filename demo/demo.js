@@ -15791,6 +15791,7 @@ var TableModule = function TableModule(quill, options) {
         //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
         // }));
     });
+
     clipboard.addMatcher('TR', function (node, delta) {
         console.log('addMatcher.TR node', node);
         console.log('addMatcher.TR delta', delta);
@@ -18141,14 +18142,16 @@ var NoBorderTable = function (_Table) {
     return NoBorderTable;
 }(Table);
 
-Table.className = 'border';
+//Table.className = 'border';
+
+
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
 Table.defaultChild = 'tr';
 Table.allowedChildren = [_TableRowBlot2.default];
 
-NoBorderTable.className = 'noborder';
+//NoBorderTable.className = 'noborder';
 NoBorderTable.blotName = 'noborder';
 NoBorderTable.tagName = 'table';
 NoBorderTable.scope = Parchment.Scope.BLOCK_BLOT;

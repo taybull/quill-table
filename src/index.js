@@ -41,6 +41,7 @@ class TableModule {
             //     table: node.getAttribute('table_id') + '|' + node.getAttribute('class')
             // }));
         });
+        
         clipboard.addMatcher('TR', function (node, delta) {
             console.log('addMatcher.TR node', node);
             console.log('addMatcher.TR delta', delta);

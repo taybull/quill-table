@@ -76,7 +76,7 @@ class NoBorderTable extends Table {
 
 }
 
-Table.className = 'border';
+//Table.className = 'border';
 Table.blotName = 'table';
 Table.tagName = 'table';
 Table.scope = Parchment.Scope.BLOCK_BLOT;
@@ -84,7 +84,7 @@ Table.defaultChild = 'tr';
 Table.allowedChildren = [TableRow];
 
 
-NoBorderTable.className = 'noborder';
+//NoBorderTable.className = 'noborder';
 NoBorderTable.blotName = 'noborder';
 NoBorderTable.tagName = 'table';
 NoBorderTable.scope = Parchment.Scope.BLOCK_BLOT;
